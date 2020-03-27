@@ -1,7 +1,5 @@
 package pa1pal.flickrimages.ui
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -37,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_item, menu)
         val searchViewItem = menu.findItem(R.id.app_bar_search)
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = searchViewItem.actionView as SearchView
         searchView.onQueryTextChange {
             mainViewModel.setQuery(it)

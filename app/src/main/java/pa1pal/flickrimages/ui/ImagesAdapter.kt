@@ -33,7 +33,10 @@ class SearchAdapter : PagedListAdapter<Photo, SearchAdapter.ViewHolder>(
         fun bind( item: Photo?) {
             with(itemView) {
                 item?.let {
-                    Picasso.get().load(it.getUrl()).fit().into(photo)
+                    Picasso.get().load(it.getUrl()).fit()
+                        .placeholder(R.drawable.ic_image_black_24dp)
+                        .error(R.drawable.ic_broken_image_black_24dp)
+                        .into(photo)
                 }
             }
         }
